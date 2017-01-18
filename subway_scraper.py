@@ -3,12 +3,12 @@
 # Jeff Allen
 # January, 2017
 
+# import all the stuff!
 import requests
 import json
 from pprint import pprint
 import time
 import threading
-from multiprocessing import Process
 
 # open up the json with the ttc station and subway line data
 with open('ttc_lines_stations.json') as data_file:
@@ -17,7 +17,7 @@ with open('ttc_lines_stations.json') as data_file:
 # set this so it can be accessed in and out of functions
 global out_data
 
-# print meow
+# print meow!
 print "meow"
 
 # grab station-line pairs which will be used as inputs into get request URLs
@@ -98,24 +98,31 @@ def try_request(el_url):
     try:
         station_request(el_url)
     except:
+        time.sleep(0.1)
         try:
             station_request(el_url)
         except:
+            time.sleep(0.1)
             try:
                 station_request(el_url)
             except:
+                time.sleep(0.1)
                 try:
                     station_request(el_url)
                 except:
+                    time.sleep(0.1)
                     try:
                         station_request(el_url)
                     except:
+                        time.sleep(0.1)
                         try:
                             station_request(el_url)
                         except:
+                            time.sleep(0.1)
                             try:
                                 station_request(el_url)
                             except:
+                                time.sleep(0.1)
                                 try:
                                     station_request(el_url)
                                 except:
@@ -168,5 +175,4 @@ while True:
     print t, begin - time.time()
 
 
-# print meow again
-print "meow"
+# cancel out when you want to quit!
