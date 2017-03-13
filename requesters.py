@@ -25,6 +25,7 @@ def station_request(el_url):
     line = r['subwayLine']
     headsigns = r['defaultDirection']
 
+
     # put into a dict object
     out_row = {"grab_time": grab_time, "line":line, "station":station, "headsigns":headsigns, "times":data}
 
