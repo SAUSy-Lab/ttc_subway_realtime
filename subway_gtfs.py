@@ -10,7 +10,6 @@ stops = caller.sdefine_stops()
 stops = caller.stop_remover(stops,4)
 urls = caller.url_generator(stops)
 
-
 #
 
 
