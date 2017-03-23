@@ -2,16 +2,18 @@ import requests
 import json
 import time
 import threading
-import callers
+import priors
 import requesters
 
 # get the initial setups
-stops = caller.sdefine_stops()
-stops = caller.stop_remover(stops,4)
-urls = caller.url_generator(stops)
+stops = priors.define_stops()
+stops = priors.stop_remover(stops,4)
+urls = priors.url_generator(stops)
 
-#
-
+try:
+    requesters.station_request(urls[2])
+except:
+    None
 
 
 

@@ -1,4 +1,6 @@
 import requests
+import time
+import json
 
 # grabs some data from a station
 def station_request(el_url):
@@ -7,7 +9,7 @@ def station_request(el_url):
     before = time.time()
 
     # sending / recieving the request
-    r = requests.get(el_url)
+    r = requests.get(el_url[2])
 
     # time request was returned with data!
     after = time.time()
@@ -20,14 +22,21 @@ def station_request(el_url):
     r = json.loads(r)
 
     # grab relevant data
-    data = r['ntasData']
+    t1 = r['ntasData'][0]['trainId']
+    t2 = r['ntasData'][3]['trainId']
+    i1 = r['ntasData'][0]['timeInt']
+    i2 = r['ntasData'][3]['timeInt']
+    # t1 = r['ntasData'][3]['trainId']
+    # t2 = r['ntasData'][3]['trainId']
+    # t1 = r['ntasData'][3]['trainId']
+    # t2 = r['ntasData'][3]['trainId']
     station = r['stationId']
     line = r['subwayLine']
-    headsigns = r['defaultDirection']
 
 
-    # put into a dict object
-    out_row = {"grab_time": grab_time, "line":line, "station":station, "headsigns":headsigns, "times":data}
+    print el_url[0], el_url[1]
+    print t1, i1
+    print t2, i2
+    print station, line, grab_time
 
-    # was it succesfull ? if so, append data to global out_data table
-    out_data.append(out_row)
+    #return out_row
